@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# git push 要通过yarn build 成功检查
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn build

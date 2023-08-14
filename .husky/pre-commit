@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# git commit 要通过yarn lint 成功检查
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint
