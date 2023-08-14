@@ -1,0 +1,10 @@
+{
+  // "extends": "next/core-web-vitals",
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "eqeqeq":[2,"always"] // 强制使用 === 和 !==
+  }
+}
