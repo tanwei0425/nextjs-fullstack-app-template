@@ -1,11 +1,13 @@
 
 // build: 影响构建系统或外部依赖项的更改（示例范围：gulp、broccoli、npm）
 // ci: 更改我们的 CI 配置文件和脚本（示例范围：Travis、Circle、BrowserStack、SauceLabs）
+// chore: 构建/工程依赖/工具等杂务工作（示例范围： .gitignore、.eslintrc、.prettierrc）
 // docs: 文档修改
 // feat: 一个新的功能
 // fix: 一个 bug 修复
 // perf: 提升性能的代码修改
 // refactor: 既不修复错误也不添加功能的代码更改
+// revert: 回退
 // style: 不影响代码含义的更改（空格、格式、缺少分号等）
 // test: 添加缺失的测试或更正现有测试
 
