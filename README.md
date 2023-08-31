@@ -6,13 +6,25 @@
 
 如果对您有一点帮助的，麻烦给下star 🌟 。 万分感谢～～～～
 
+## 功能
+
+- [x] 使用新的Next.js 13
+- [x] 新建/app目录
+- [x] route、layout、嵌套layout
+- [x] 使用React 18中的客户端和服务器组件
+- [x] API Routes
+- [x] 使用Prisma的ORM
+- [x] Mysql数据库
+- [x] 使用ant-design构建的UI组件
+- [x] 使用Tailwind CSS设计样式
+
 ## 技术栈
 
 - nextjs-13.x
 - React-18.x
 - Prisma
 - Mysql
-- Antd-5x
+- Antd-5.x
 - Axios
 - Styling
 
