@@ -38,11 +38,11 @@
 - node >= 16.8.0
 - yarn >=1.22.0
 
-# 代码格式化和质量工具
+## 代码格式化和质量工具
 
 - ESLint
 - Prettier
 
-# Git Hooks
+## Git Hooks
 
 - Husky
