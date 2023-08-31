@@ -1,7 +1,11 @@
 import prisma from '@/libs/prismadb';
+import { headers } from 'next/headers';
 import { NextResponse, } from 'next/server';
-
 export async function GET() {
+    const headersList = headers();
+    // 测试中间件req
+    const reqMiddleware = headersList.get('x-hello-from-middleware-req')
+    console.log(reqMiddleware, 'reqMiddleware');
     const res = await prisma.User.findMany({
         orderBy: {
             createdAt: 'asc',

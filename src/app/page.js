@@ -1,5 +1,14 @@
 import { Button } from 'antd';
 import Link from 'next/link';
+
+/**
+ * 配置路由片段
+ */
+export const dynamic = 'auto';
+export const dynamicParams = true;
+export const revalidate = false;
+
+
 function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">

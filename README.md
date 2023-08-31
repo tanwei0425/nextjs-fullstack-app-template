@@ -10,11 +10,12 @@
 
 - [x] 使用新的Next.js 13
 - [x] 新建/app目录
-- [x] route、layout、嵌套layout
+- [x] route、layout、嵌套layout、配置路由片段
 - [x] 使用React 18中的客户端和服务器组件
 - [x] API Routes
 - [x] 使用Prisma的ORM
 - [x] Mysql数据库
+- [x] Middleware中间件
 - [x] 使用ant-design构建的UI组件
 - [x] 使用Tailwind CSS设计样式
 
