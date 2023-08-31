@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nextjs 13.x 项目模板
 
-## Getting Started
+## nextjs-13.x-fullstack-app-template
 
-First, run the development server:
+🚀⚡️ 一个可用于生产环境的基于nextjs13 的 React 全栈Web应用程序。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+如果对您有一点帮助的，麻烦给下star 🌟 。 万分感谢～～～～
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 技术栈
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- nextjs-13.x
+- React-18.x
+- Prisma
+- Mysql
+- Antd-5x
+- Axios
+- Styling
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  - [x] CSS Modules
+  - [x] Tailwind CSS
+  - [x] Sass
+  - [x] CSS-in-JS
 
-## Learn More
+## 引擎锁定
 
-To learn more about Next.js, take a look at the following resources:
+- node >= 16.8.0
+- yarn >=1.22.0
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 代码格式化和质量工具
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- ESLint
+- Prettier
 
-## Deploy on Vercel
+# Git Hooks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Husky
