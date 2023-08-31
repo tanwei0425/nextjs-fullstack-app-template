@@ -1,6 +1,9 @@
-import "./globals.css";
+import theme from '@/config/theme';
+import StyledComponentsRegistry from '@/libs/antdRegistry';
+import "@/styles/globals.css";
+import { App, ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
 import { Inter } from "next/font/google";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StyledComponentsRegistry>
+          <ConfigProvider locale={zhCN} theme={theme}>
+            <App>
+              {children}
+            </App>
+          </ConfigProvider>
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// npx prisma db pull 从数据库同步到本地模型
+// npx prisma db push 将本地模型同步数据库
+// npx prisma studio 打开编辑器
+// npx prisma generate 生成PrismaClient实例
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  status      Int      @default(1) @db.TinyInt
+  region      Region[]
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+  isDelete    Int      @default(0) @map(name: "is_delete") @db.TinyInt
+
+  @@map(name: "tw_user")
+}
+
+model Region {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  status      Int      @default(1) @db.TinyInt
+  userId      String   @map(name: "user_id")
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+  isDelete    Int      @default(0) @map(name: "is_delete") @db.TinyInt
+  tw_user     User     @relation(fields: [userId], references: [id])
+
+  @@map(name: "tw_region")
+}
+
+// YYYY-MM-DD HH:MM:SS
