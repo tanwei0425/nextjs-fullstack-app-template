@@ -1,6 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+// npx prisma init 定义模型
 // npx prisma db pull 从数据库同步到本地模型
 // npx prisma db push 将本地模型同步数据库
 // npx prisma studio 打开编辑器
