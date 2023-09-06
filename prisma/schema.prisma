@@ -20,8 +20,8 @@ model User {
   name        String
   description String?
   status      Int      @default(1) @db.TinyInt
-  createdAt   DateTime @default(now()) @map(name: "created_at")
-  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+  createdAt   DateTime @default(now()) @map(name: "created_at") // UTC
+  updatedAt   DateTime @default(now()) @map(name: "updated_at") // UTC
   isDelete    Int      @default(0) @map(name: "is_delete") @db.TinyInt
 
   @@map(name: "tw_user")

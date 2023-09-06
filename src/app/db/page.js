@@ -2,6 +2,7 @@
 import styles from '@/styles/db.module.scss';
 import { App, Button, Col, Form, Input, Modal, Radio, Row, Space, Spin, Table } from 'antd';
 import axios from 'axios';
+import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 const formItemLayout = { labelCol: { span: 6 }, wrapperCol: { span: 14 } };
@@ -15,10 +16,33 @@ function DB() {
     const [typeModal, setTypeModal] = useState(null);
     const [titleModal, setTitleModal] = useState('操作');
     const [tableRecord, setTableRecord] = useState({});
+    const [pagination, setPagination] = useState({
+        current: 1,
+        pageSize: 10,
+        total: 0,
+    });
 
     useEffect(() => {
         getDbUserTable()
-    }, [])
+    }, [pagination.current, pagination.pageSize])
+
+    const getDbUserTable = async () => {
+        setLoading(true)
+        const { data } = await axios.get('/api/db', {
+            params: {
+                current: pagination.current,
+                pageSize: pagination.pageSize,
+            },
+        })
+        if (data.status === 200) {
+            setDataSource(data.data?.list)
+            setPagination({
+                ...pagination,
+                total: data.data?.total
+            })
+        }
+        setLoading(false)
+    }
 
     const showModal = (type, title, record) => {
         if (type === 'edit') {
@@ -50,20 +74,18 @@ function DB() {
                 } else if (typeModal === 'edit') {
                     editDbUser(values)
                 }
-
             }
         } else {
             deleteDbUser()
         }
     };
 
-    const getDbUserTable = async () => {
-        setLoading(true)
-        const { data } = await axios.get('/api/db')
-        if (data.status === 200) {
-            setDataSource(data?.data)
-        }
-        setLoading(false)
+    const onChange = async ({ current, pageSize }) => {
+        console.log(pagination, 'pagination');
+        setPagination({
+            current,
+            pageSize,
+        })
     }
 
     const addDbUser = async (values) => {
@@ -106,7 +128,6 @@ function DB() {
         }
     }
 
-
     const columns = [
         {
             title: '姓名',
@@ -126,10 +147,16 @@ function DB() {
         {
             title: '创建时间',
             dataIndex: 'createdAt',
+            render(text) {
+                return dayjs(text).format('YYYY-MM-DD HH:mm:ss')
+            }
         },
         {
             title: '修改时间',
             dataIndex: 'updatedAt',
+            render(text) {
+                return dayjs(text).format('YYYY-MM-DD HH:mm:ss')
+            }
         },
         {
             title: '操作',
@@ -150,7 +177,14 @@ function DB() {
                 dataSource={dataSource || []}
                 columns={columns}
                 loading={loading}
-                pagination={false}
+                onChange={onChange}
+                pagination={{
+                    showQuickJumper: true,
+                    showSizeChanger: true,
+                    pageSizeOptions: ["10", "20", "30", "40"],
+                    showTotal: (total, range) => `显示${range[0]}到${range[1]}, 共 ${total} 条数据`,
+                    ...pagination
+                }}
                 title={() => <Row justify="space-between" align="middle">
                     <Col>
                         DB

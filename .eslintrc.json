@@ -6,6 +6,7 @@
     "globalThis": true
   },
   "rules": {
-    "eqeqeq": [2, "always"] // 强制使用 === 和 !==
+    "eqeqeq": [2, "always"], // 强制使用 === 和 !==
+    "react-hooks/exhaustive-deps": "off"
   }
 }
