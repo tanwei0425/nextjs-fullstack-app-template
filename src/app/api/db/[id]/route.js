@@ -17,8 +17,6 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
     console.log(params, 'params');
     const data = await request.json();
-    data.updatedAt = new Date(new Date().toUTCString())
-    console.log(data, 'data');
     const updateUser = await prisma.User.update({
         where: {
             id: params.id,
